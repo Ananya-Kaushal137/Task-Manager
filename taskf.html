@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TaskFlow | Task Manager</title>
+    <meta name="description" content="A clean task manager to organize your work">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="taskf.css">
+</head>
+
+<body>
+    <div class="app-container">
+        <!-- Header -->
+        <header class="app-header">
+            <div class="logo">
+                <div class="logo-icon">T</div>
+                <span class="logo-text">TaskFlow</span>
+            </div>
+            <div class="header-stats">
+                <div class="stat-badge">
+                    <span class="stat-value" id="total-tasks">0</span>
+                    <span class="stat-label">Total</span>
+                </div>
+                <div class="stat-badge">
+                    <span class="stat-value" id="pending-tasks">0</span>
+                    <span class="stat-label">Pending</span>
+                </div>
+                <div class="stat-badge accent">
+                    <span class="stat-value" id="completed-tasks">0</span>
+                    <span class="stat-label">Done</span>
+                </div>
+            </div>
+            <div class="current-date" id="current-date"></div>
+        </header>
+
+        <!-- Add Task -->
+        <section class="add-task-section">
+            <form class="add-task-form" id="task-form">
+                <input type="text" id="task-input" placeholder="Add a new task..." autocomplete="off" required>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>Priority</label>
+                        <div class="priority-buttons">
+                            <button type="button" class="priority-btn low active" data-priority="low">Low</button>
+                            <button type="button" class="priority-btn medium" data-priority="medium">Medium</button>
+                            <button type="button" class="priority-btn high" data-priority="high">High</button>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>Category</label>
+                        <select id="task-category">
+                            <option value="personal">Personal</option>
+                            <option value="work">Work</option>
+                            <option value="health">Health</option>
+                            <option value="learning">Learning</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+                </div>
+                <button type="submit" class="add-btn">Add Task</button>
+            </form>
+        </section>
+
+        <!-- Filters -->
+        <section class="filter-section">
+            <div class="filter-tabs">
+                <button class="filter-tab active" data-filter="all">All</button>
+                <button class="filter-tab" data-filter="active">Active</button>
+                <button class="filter-tab" data-filter="completed">Completed</button>
+            </div>
+            <div class="search-box">
+                <input type="text" id="search-input" placeholder="Search...">
+            </div>
+        </section>
+
+        <!-- Tasks -->
+        <section class="tasks-section">
+            <ul class="task-list" id="task-list"></ul>
+            <div class="empty-state" id="empty-state">
+                <div class="empty-icon">—</div>
+                <h3>No tasks</h3>
+                <p>Add your first task above</p>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="app-footer">
+            <span id="items-left">0 items left</span>
+            <div class="footer-actions">
+                <button class="action-btn" id="clear-completed">Clear Completed</button>
+                <button class="action-btn danger" id="clear-all">Clear All</button>
+            </div>
+        </footer>
+    </div>
+
+    <!-- Toast -->
+    <div class="toast" id="toast">
+        <span class="toast-message">Task added</span>
+    </div>
+
+    <script src="taskf.js"></script>
+</body>
+
+</html>
